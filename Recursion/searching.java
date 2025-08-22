@@ -5,6 +5,8 @@ public class linear{
         System.out.println(find(arr,target,0));
         System.out.println(findIndex(arr,target,0));
          System.out.println(findIndexFromLast(arr, target,arr.length-1));
+         System.out.println(findIndexAll(arr, target,0));
+
 
     }
     static boolean find(int[] arr,int target,int i){
@@ -32,6 +34,16 @@ public class linear{
         }else{
             return findIndexFromLast( arr,target,i-1);
         }
+    }
+     static ArrayList<Integer> list= new ArrayList<>();
+     static List<Integer> findIndexAll(int[] arr,int target,int i){
+        if(i==arr.length){
+            return list;
+        }
+        if(arr[i]==target){
+            list.add(i);
+        }
+        return findIndexAll(arr, target, i+1);
     }
 
 }
